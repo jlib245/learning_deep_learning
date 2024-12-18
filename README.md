@@ -1,2 +1,2 @@
 # LearningDeapLearning
-I'm studying DeepLearning while the book "Deep Learning from Scratch"
+I'm studying DeepLearning with the book "Deep Learning from Scratch"
