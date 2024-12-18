@@ -20,6 +20,17 @@ def AND(x1, x2):
         return 0
     else :
         return 1
+    
+# NAND Gate
+def NAND(x1, x2):
+    x = np.array([x1, x2])
+    w = np.array([-0.5, -0.5]) # AND와는 w와 b만 다름
+    b = 0.7
+    tmp = np.sum(w*x) + b
+    if tmp <= 0 :
+        return 0
+    else :
+        return 1
 
 x = np.array([0, 1]) # input
 w = np.array([0.5, 0.5]) # weight
