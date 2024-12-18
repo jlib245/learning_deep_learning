@@ -32,6 +32,17 @@ def NAND(x1, x2):
     else :
         return 1
 
+# OR Gate
+def OR(x1, x2) :
+    x = np.array([x1, x2])
+    w = np.array([0.5, 0.5])
+    b = -0.2 # why -0.2..?
+    tmp = np.sum(w*x) + b
+    if tmp <= 0 :
+        return 0
+    else :
+        return 1
+
 x = np.array([0, 1]) # input
 w = np.array([0.5, 0.5]) # weight
 b = -0.7 # bias
