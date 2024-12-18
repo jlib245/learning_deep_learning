@@ -49,7 +49,7 @@ Perceptron's Limit
     - because this is linear
     - Solution to this problem : Multi-Layer Perceptrion               
 '''
-# XOR Gate implemented with different gates : AND&(NAND|OR)
+# XOR Gate implemented with different gates : AND&(NAND|OR) : 2-Layer Perceptron
 def XOR(x1, x2) :
     s1 = NAND(x1, x2)
     s2 = OR(x1, x2)
