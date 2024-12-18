@@ -43,6 +43,19 @@ def OR(x1, x2) :
     else :
         return 1
 
+'''
+Perceptron's Limit
+- Unable to implement XOR gate
+    - because this is linear
+    - Solution to this problem : Multi-Layer Perceptrion               
+'''
+# XOR Gate implemented with different gates : AND&(NAND|OR)
+def XOR(x1, x2) :
+    s1 = NAND(x1, x2)
+    s2 = OR(x1, x2)
+    return AND(s1, s2)
+
+
 x = np.array([0, 1]) # input
 w = np.array([0.5, 0.5]) # weight
 b = -0.7 # bias
