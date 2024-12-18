@@ -74,6 +74,7 @@ print(Y.shape)
 def identity_function(x) :
     return x
 
+'''
 # 3층 신경망 구현
 X = np.array([1.0, 0.5])
 W1 = np.array([[0.1, 0.3, 0.5],
@@ -105,3 +106,19 @@ B3 = np.array([0.1, 0.2])
 A3 = np.dot(Z2, W3) + B3
 Y = identity_function(A3)
 print(Y)
+'''
+
+# softmax_function
+def softmax(a) :
+    exp_a = np.exp(a)
+    sum_exp_a = np.sum(exp_a)
+    y = exp_a / sum_exp_a
+    return y
+
+# softmax_function overloarding : large number problem solved version
+def softmax(a) :
+    c = np.exp(a)
+    exp_a = np.exp(a-c) # counterplan against overflow
+    sum_exp_a = np.sum(exp_a)
+    y = exp_a / sum_exp_a
+    return y
