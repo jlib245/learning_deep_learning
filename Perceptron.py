@@ -2,6 +2,7 @@ import numpy as np
 
 # AND Gate
 def AND(x1, x2):
+    # x1, x2, tmp = node (or neuron)
     # w : weight, theta : threshold (임계값)
     w1, w2, theta = 0.5, 0.5, 0.7
     tmp = x1*w1 + x2*w2
