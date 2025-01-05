@@ -5,7 +5,7 @@ def sum_squares_error(y,t):
 def cross_entropy_error(y, t):
     delta = 1e-7
     return -np.sum(t * np.log(y + delta))
-
+'''
 # batch
 def cross_entropy_error(y, t):
     if y.ndim == 1:
@@ -14,7 +14,7 @@ def cross_entropy_error(y, t):
 
     batch_size = y.shape[0]
     return -np.sum(np.log(y[np.arange(batch_size), t] - 1e-7)) / batch_size
-
+'''
 def numerical_diff(f, x):
     h = 1e-4 # 0.0001
     return ((f(x+h) - f(x-h)) / (2*h))
