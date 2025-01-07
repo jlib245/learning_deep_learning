@@ -1,3 +1,4 @@
+#%%Run cell
 import numpy as np
 
 class SGD:
@@ -40,9 +41,6 @@ class AdaGrad:
             params[key] -= self.lr * grads[key] / (np.sqrt(self.h[key]) + 1e-7)
 
 class RMSprop:
-
-    """RMSprop"""
-
     def __init__(self, lr=0.01, decay_rate = 0.99):
         self.lr = lr
         self.decay_rate = decay_rate
@@ -89,3 +87,28 @@ class Adam:
             #unbias_m += (1 - self.beta1) * (grads[key] - self.m[key]) # correct bias
             #unbisa_b += (1 - self.beta2) * (grads[key]*grads[key] - self.v[key]) # correct bias
             #params[key] += self.lr * unbias_m / (np.sqrt(unbisa_b) + 1e-7)
+            
+            
+from chap3_neural_network import sigmoid
+import matplotlib.pyplot as plt
+
+x = np.random.randn(1000, 100) # 1000 datas
+node_num = 100
+hidden_layer_size = 5
+activations = {}
+for i in range(hidden_layer_size):
+    if i != 0 :
+        x = activations[i-1]
+        
+    #w = np.random.randn(node_num, node_num) * 1
+    w = np.random.randn(node_num, node_num) * 0.1  
+    a = np.dot(x, w)
+    z = sigmoid(a)
+    activations[i] = z
+        
+for i, a in activations.items():
+    plt.subplot(1, len(activations), i+1)
+    plt.title(str(i+1) + "-layer")
+    plt.hist(a.flatten(), 30, range=(0,1)) 
+plt.show()
+# %%
