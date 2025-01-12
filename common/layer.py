@@ -128,10 +128,10 @@ class Convolution:
         out_w = int(1 + (W + 2*self.pad - FW) / self.stride)
         
         col = im2col(x, FH, FW, self.stride, self.pad)
-        col_W = self.W.reshape(FN, -1)
+        col_W = self.W.reshape(FN, -1) # reshape에 -1 지정 시 다차원 배열의 원소 수가 변환 후에도 똑같이 유지지
         out = np.dot(col, col_W) + self.b
         
-        out = out.reshape(N, out_h, out_w, -1).transpose(0, 3, 1, 2)
+        out = out.reshape(N, out_h, out_w, -1).transpose(0, 3, 1, 2) 
         return out
     
 class Pooling:
